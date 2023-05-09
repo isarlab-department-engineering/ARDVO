@@ -25,7 +25,7 @@ fields in Umbria, a central region of Italy.
 ARD-VO is released under a [GPLv3 license](LICENSE).
 
 
-If you use ARD-VO (Monocular) in an academic work, please cite:
+If you use ARD-VO in an academic work, please cite:
 
     @article{crocetti2023ard,
       title={ARD-VO: Agricultural robot data set of vineyards and olive groves},
@@ -73,7 +73,7 @@ of the robotic platform.
   </tr>
 </table>
 
-### Sensors Equipments and connection overview
+### Sensors, Equipments and connection overview
 <table>
   <tr>
     <td><img src="img/Agrobot_overview_sens.jpg" alt="Agrobot - Sensors displacement" height="350x"/> </td>
@@ -109,4 +109,14 @@ of the robotic platform.
     <td colspan="2"> <b>X90 mobile controller:</b> <a href="https://www.br-automation.com/en/products/plc-systems/x90-mobile-control-system/">X90 mobile control system</a> </td>
  </tr>
 
+<tr>
+    <td colspan="2"> <b>Main computer:</b> Intel i7-9700E CPU with an NVIDIA GeForce RTX 2060. Two SO-DIMM slots
+equip 32GB of DDR4 2666 MHz RAM. We decided to install
+two different storage systems: one PCI Express x4 NVMe
+1.3, 256GB for the operating system (Ubuntu 20.04 LTS 64
+bit) and two SATA SSD 2.5", 2TB disks for data. </td>
+ </tr>
+
+ <tr>
+    <td colspan="2"> <b>Ethernet switch:</b> Oring TGXPS-1080-M12-24V Series </td> </tr>
 </table>
