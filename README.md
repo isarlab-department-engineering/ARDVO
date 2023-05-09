@@ -93,7 +93,7 @@ of the robotic platform.
  </tr>
 
  <tr>
-    <td rowspan="2"> <b>Frontal camera rig (two units, left and right) </b>   </td>
+    <td rowspan="2"> <b>Front camera rig (two units, left and right) </b>   </td>
     <td>Camera Module:  <a href="https://www.flir.com/products/blackfly-s-gige/?vertical=machine+vision&segment=iis">Blackfly S BFS-PGE-04S2C-C</a> </td>
  </tr>
 
