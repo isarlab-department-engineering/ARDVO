@@ -8,10 +8,10 @@ Unmanned Ground Vehicle (UGV) equipped with different heterogeneous sensors
 that capture information essential for robot localization and plant monitoring tasks.
 It is composed of sequences gathered in 11 experimental sessions between August
 and October 2021, navigating the UGV for several kilometers in four cultivation
-fields in Umbria, a central region of Italy.
+fields in Umbria, a central region of Italy: (a)-(b) vineyards, (c)-(d) olive crops
 
 
-<img src="img/cultivs.png" alt="Vineyard an Olive Crops used to gather data" height="250px"/> <br/>
+<img src="imgs/cultivs.png" alt="Vineyard an Olive Crops used to gather data" height="250px"/> <br/>
 
 
 | Alias name |         Crop Variety          |     lat(N) , lon(E)      | # Sessions |               Date: dd, mm, yyyy                |
@@ -59,7 +59,7 @@ of the robotic platform.
     <th colspan="4">Robot Body Measurements</th>
   </tr>
   <tr>
-    <th rowspan="4"><img src="img/Agrobot_body.png" alt="Agrobot - Body measurements" height="280px"/> <br/></th>
+    <th rowspan="4"><img src="imgs/Agrobot_body.png" alt="Agrobot - Body measurements" height="280px"/> <br/></th>
   </tr>
   <tr>
     <td>𝑎 1.30 [𝑚]</td>
@@ -86,8 +86,8 @@ of the robotic platform.
 ### Sensors, Equipments and connection overview
 <table>
   <tr>
-    <td><img src="img/Agrobot_overview_sens.jpg" alt="Agrobot - Sensors displacement" height="350x"/> </td>
-    <td><img src="img/Agrobot_modules.png" alt="Agrobot - Sensors connection" height="350x"/> </td>
+    <td><img src="imgs/Agrobot_overview_sens.jpg" alt="Agrobot - Sensors displacement" height="350x"/> </td>
+    <td><img src="imgs/Agrobot_modules.png" alt="Agrobot - Sensors connection" height="350x"/> </td>
   </tr>
 
   <tr>
@@ -130,3 +130,12 @@ bit) and two SATA SSD 2.5", 2TB disks for data. </td>
  <tr>
     <td colspan="2"> <b>Ethernet switch:</b> Oring TGXPS-1080-M12-24V Series </td> </tr>
 </table>
+
+## 3. Dataset
+
+For each session listed in Table 2, two sets of data are available: the first is made using the sensors connected
+to the onboard computer, and the second only with the multispectral camera, whose streams are independently geotagged
+by using the GPS of the RedEdge Micasese kit. For each session, we used ROS (Quigley et al., 2009) to handle the data
+related to the devices directly connected to the onboard unit, while the multispectral images are stored directly on the SSD
+memory of the RedEdge camera. Since the duration of the sessions may vary between one and two hours, each one is split
+into a number of shorter sequences
