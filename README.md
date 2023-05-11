@@ -138,7 +138,7 @@ For each session, two sets of data are available: the first is made using the se
 to the onboard computer, and the second only with the multispectral camera, whose streams are independently geotagged
 by using the GPS of the RedEdge Micasese kit. 
 
-### ROSBAG for onboard devices recorded data.
+### 3.1 ROSBAG for onboard devices recorded data.
 
 We used **[ROS Noetic](http://wiki.ros.org/noetic)** to handle the data
 related to the devices directly connected to the onboard unit, while the multispectral images are stored directly on the SSD
@@ -205,7 +205,7 @@ this dataset.
   </tr>
 </table>
 
-### Extracted data examples
+### 3.1.1 Extracted data examples
 
 #### RGB AND LIDAR
 In the following, as en example some RGB images and laser scans extracted from ARD-VO dataset.</br>
@@ -213,7 +213,7 @@ The first two rows contain the RGB images collected by the left (a-f) and the ri
 The third row includes examples of laser scans. The first three columns (a-c, g-i, m-o) contain samples from the sequences gathered
 in the olive crops (OlvCS-A,B), while the latter three (d-f, j-l, p-r) from those collected in the vineyards (Vynrd-A,B).
 
-<img src="imgs/camera_laser_example.png" alt="Vineyard an Olive Crops used to gather data" width="900px"/> <br/><br/>
+<img src="imgs/camera_laser_example.png" alt="RGB images and Lidar example images" width="900px"/> <br/><br/>
 
 #### INVERTERS 
 The topics related to the inverters contain useful diagnostic data and flags provided from the inverters. 
@@ -222,11 +222,108 @@ provided in the previous table.
 Each inverter has two channels (CH1,CH2) that are used to drive the front and rear wheels of each side (Left and Right) of the robot.
 The gathered data also include RPM of the motors and the power consumption.  
 
-<img src="imgs/inverters_example.png" alt="Vineyard an Olive Crops used to gather data" width="900px"/> <br/>
+<img src="imgs/inverters_example.png" alt="Inverters data example" width="900px"/> <br/>
 
 **Note:** Each wheel is connected with a kinematic chain of 80:1 transmission ratio to a 2 kW three-phase brushless BLCD motor that can reach
 4300 rpm and 4.6 Nm torque.</br>
 
 #### DURO IMU AND GPS-RTK
 
-<img src="imgs/imu_example.png" alt="Vineyard an Olive Crops used to gather data" width="900px"/> <br/>
+The Duro intertial device provides GNSS + INS position with a centimeter-level accuracy at up to 10Hz Update Frequency. 
+The latitude/longitude measurements with variance are provided within a specific topic. It should be noted that the topic /gps/duro/imu
+containing theThe IMU messages does not include the orientation but only accelerations and angular velocities. 
+The orientation is computed by the IMU firmware and published on the following topics: /gps/duro/rollpitchyaw, /gps/duro/current_pose
+and /gps/duro/odom. The image below shows an example of accelerations and angular velocities extracted from a sequence.
+
+<img src="imgs/imu_example.png" alt="Imu data example" width="900px"/> <br/>
+
+### 3.1.2 Post-processing 
+Due to voltage oscillations, shocks, network congestion, and
+ROS node miscommunications, we experienced spurious and
+corrupted frames among the raw RGB image sets.</br>
+In order to produce a high-quality dataset, the collected video sequences
+were, therefore, subjected to a frame-by-frame automated check to ensure their integrity and guarantee frames equally
+spaced in time. <br>
+As a result, the image streams in the postprocessed sequences are free from corrupted data and characterized by a framerate in the range of 8-10 FPS. </br>
+
+The un-processed (raws) sequences are also provided in separate folders for completeness and further studies. 
+
+### 3.2 Multispectral data
+We employed a RedEdge MX camera. </br>
+#### 3.2.1 Images data
+The module shots five different images  with a fixed resolution of 1280x960 pixels at 1 Hz, corresponding to different bands:
+- Blue,475 (32)
+- Green, 560 (27)
+- Red, 668 (14)
+- Red, Edge 717 (12)
+- Near, IR 842 (57)</br>
+
+with the following convention: Band-name,CenterFrequency (Bandwidth).
+
+The following image show an example of a set of images referring to the same subject.
+
+<img src="imgs/micasense_example.png" alt="Micasense multi-bands images" width="900px"/> <br/>
+
+#### 3.2.2 Calibration
+Before each experimental session, radiometric calibration is
+performed to compensate for sensor black-level, sensor sensitivity, sensor gain and exposure settings, and lens vignette
+effects. The radiometric model is used to normalize the pixel value in the range 0 to 1: dividing the raw digital number for
+the pixel by 2𝑁 , where 𝑁 is the number of bits in the image: in this case we selected 16-bit thus 𝑁 = 65536.</br>
+This normalization applies to both pixel and black-level values.
+
+
+#### 3.2.3 Data
+The camera embeds five optimized imagers with their sensor and filter. The camera module also has one stand-alone external GPS
+to geotag the images. all the information are stored in the meta-data (EXIF) of the images that can be extracted with dedicated
+tools or programming libraries:
+- Python: [exif](https://pypi.org/project/exif/), [Pillow](https://pypi.org/project/Pillow/) packages
+- C++: [exiv2](https://exiv2.org/)
+
+**Note:** the images are not synchronized with the rest of the data.
+Nonetheless, the metadata associated with the images provides the GPS and the timestamp information can be used to perform
+the alignment with the other sensors. Since, depending on the needs, there might be different strategies to achieve this alignment, 
+we preferred to keep the images provided by the sensor, leaving to the users the possibility to implement
+the post-processing and the alignment procedures as deemed appropriate.
+
+#### 3.2.4 Examples of stand-alone study
+The availability of isolate geotagged multi-spectral images allows to perform studies that are not directly related to 
+robotics, so there is no need to download the entire dataset. </br>
+The following set of images shows as example, the NDVI maps computed
+for the four cultivation using just the multispectral images.
+
+<img src="imgs/ndvi_map_example.png" alt="Ndvi map example" width="900px"/> <br/>
+
+### 3.3 Data organization
+
+```shell
+ARD-VO
+├── Processed 
+│   ├── OlvcsA
+│   │     └── 13_Oct_2021
+│   │     │        └── 2021-10-13-12-43-46_clean.bag
+│   │     │        └── 2021-10-13-12-53-28_clean.bag
+│   │     └── ....
+│   │     └── 30_Sep_2021
+│  ...
+│   └── Vynrd B
+│         └── 01_Sep_2021
+│         │        └── 2021-09-01-10-49-44_clean.bag
+│         │        └── ....
+│         │        └── 2021-09-01-12-25-09_clean.bag
+│         └── 04_Aug_2021
+├── raw
+│   ├── OlvcsA
+│   │     └── 13_Oct_2021
+│   │     │        └── 2021-10-13-12-43-46.bag
+│   │     │        └── 2021-10-13-12-53-28.bag
+│   │     └── ....
+│   │     └── 30_Sep_2021
+│  ...
+│   └── Vynrd B
+│         └── 01_Sep_2021
+│         │        └── 2021-09-01-10-49-44.bag
+│         │        └── ....
+│         │        └── 2021-09-01-12-25-09.bag
+│         └── 04_Aug_2021
+└── Multispectral
+```
