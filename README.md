@@ -1,6 +1,7 @@
 # ARD-VO: Agricultural Robot Dataset of Vineyards and Olive groves
 
-***09, Mar 2021 update***</br> 
+
+***10, Mar 2021 update***</br> 
 - REPOSITORY UNDER CONSTRUCTION we are uploading and building the github repo.  </br></br></br>
 
 Real-world extensive set of data to support the development of solutions and algorithms for precision farming technologies in the aforementioned crops. ARD-VO has been collected with an
@@ -11,7 +12,7 @@ and October 2021, navigating the UGV for several kilometers in four cultivation
 fields in Umbria, a central region of Italy: (a)-(b) vineyards, (c)-(d) olive crops
 
 
-<img src="imgs/cultivs.png" alt="Vineyard an Olive Crops used to gather data" height="250px"/> <br/>
+<img src="imgs/cultivs.png" alt="Vineyard an Olive Crops used to gather data" width="900x"/> <br/>
 
 
 | Alias name |         Crop Variety          |     lat(N) , lon(E)      | # Sessions |               Date: dd, mm, yyyy                |
@@ -59,7 +60,7 @@ of the robotic platform.
     <th colspan="4">Robot Body Measurements</th>
   </tr>
   <tr>
-    <th rowspan="4"><img src="imgs/Agrobot_body.png" alt="Agrobot - Body measurements" height="280px"/> <br/></th>
+    <th rowspan="4" style="align-items: center"><img src="imgs/Agrobot_body.png" alt="Agrobot - Body measurements" width="280px"/> <br/></th>
   </tr>
   <tr>
     <td>𝑎 1.30 [𝑚]</td>
@@ -86,8 +87,8 @@ of the robotic platform.
 ### Sensors, Equipments and connection overview
 <table>
   <tr>
-    <td><img src="imgs/Agrobot_overview_sens.jpg" alt="Agrobot - Sensors displacement" height="350x"/> </td>
-    <td><img src="imgs/Agrobot_modules.png" alt="Agrobot - Sensors connection" height="350x"/> </td>
+    <th><img src="imgs/Agrobot_overview_sens.jpg" alt="Agrobot - Sensors displacement" height="350x"/> </th>
+    <th><img src="imgs/Agrobot_modules.png" alt="Agrobot - Sensors connection" height="350x"/> </th>
   </tr>
 
   <tr>
@@ -133,9 +134,99 @@ bit) and two SATA SSD 2.5", 2TB disks for data. </td>
 
 ## 3. Dataset
 
-For each session listed in Table 2, two sets of data are available: the first is made using the sensors connected
+For each session, two sets of data are available: the first is made using the sensors connected
 to the onboard computer, and the second only with the multispectral camera, whose streams are independently geotagged
-by using the GPS of the RedEdge Micasese kit. For each session, we used ROS (Quigley et al., 2009) to handle the data
+by using the GPS of the RedEdge Micasese kit. 
+
+### ROSBAG for onboard devices recorded data.
+
+We used **[ROS Noetic](http://wiki.ros.org/noetic)** to handle the data
 related to the devices directly connected to the onboard unit, while the multispectral images are stored directly on the SSD
 memory of the RedEdge camera. Since the duration of the sessions may vary between one and two hours, each one is split
-into a number of shorter sequences
+into a number of shorter sequences. </br>
+
+The rosbag package allows recording these topics and
+messages in a unique file that can be executed in batches to
+reproduce the experiment. The following table reports a description of the
+collected data, the message types, and the topics available in
+this dataset.
+
+<table>
+  <tr>
+    <th> Topic </th>
+    <th> Message Type </th>
+    <th> Description </th>
+  </tr>
+  <tr>
+    <td><i>/flir_adk/front/left/image_raw</i> </br>/flir_adk/front/right/image_raw </td>
+    <td> sensor_msgs/Image</td>
+    <td> Raw images from the frontal FLIR cameras.</td>
+  </tr>
+  <tr>
+    <td><i>/gps/duro/current_pose</i></td>
+    <td> geometry_msgs/PoseStamped</td>
+    <td> (𝑥, 𝑦, 𝑧) metric position and orientation (quaternion)</td>
+  </tr>
+
+  <tr>
+    <td><i>/gps/duro/fix</i></td>
+    <td> sensor_msgs/NavSatFix</td>
+    <td> GPS lat/long with variance.</td>
+  </tr>
+
+  <tr>
+    <td><i>/gps/duro/imu</i></td>
+    <td> sensor_msgs/Imu</td>
+    <td> Angular velocity and acceleration about (𝑥, 𝑦, 𝑧) axes.</td>
+  </tr>
+
+  <tr>
+    <td><i>/gps/duro/odom</i></td>
+    <td>nav_msgs/Odometry</td>
+    <td> Estimates of position and velocity with the respect to the reference frame.</td>
+  </tr>
+
+  <tr>
+    <td><i>/gps/duro/rollpitchyaw</i></td>
+    <td>geometry_msgs/Vector3</td>
+    <td> Orientation.</td>
+  </tr>
+
+  <tr>
+    <td><i>/velodyne_points</i></td>
+    <td>sensor_msgs/PointCloud2</td>
+    <td>Velodyne laser scanned points transformed in the original frame of reference.</td>
+  </tr>
+
+  <tr>
+    <td><i>/agrobot/Inverter/HBL2360A_L</i> </br><i>/agrobot/Inverter/HBL2360A_R</i> </td>
+    <td> diagnostic_msgs/DiagnosticArray</td>
+    <td> Diagnostic messages from the Inverters.</td>
+  </tr>
+</table>
+
+### Extracted data examples
+
+#### RGB AND LIDAR
+In the following, as en example some RGB images and laser scans extracted from ARD-VO dataset.</br>
+The first two rows contain the RGB images collected by the left (a-f) and the right (g-l) cameras, respectively. </br>
+The third row includes examples of laser scans. The first three columns (a-c, g-i, m-o) contain samples from the sequences gathered
+in the olive crops (OlvCS-A,B), while the latter three (d-f, j-l, p-r) from those collected in the vineyards (Vynrd-A,B).
+
+<img src="imgs/camera_laser_example.png" alt="Vineyard an Olive Crops used to gather data" width="900px"/> <br/><br/>
+
+#### INVERTERS 
+The topics related to the inverters contain useful diagnostic data and flags provided from the inverters. 
+Some flags are coded according to the manufacturer (Roboteq) specs. To further use them you need to download the inverter manual already
+provided in the previous table.
+Each inverter has two channels (CH1,CH2) that are used to drive the front and rear wheels of each side (Left and Right) of the robot.
+The gathered data also include RPM of the motors and the power consumption.  
+
+<img src="imgs/inverters_example.png" alt="Vineyard an Olive Crops used to gather data" width="900px"/> <br/>
+
+**Note:** Each wheel is connected with a kinematic chain of 80:1 transmission ratio to a 2 kW three-phase brushless BLCD motor that can reach
+4300 rpm and 4.6 Nm torque.</br>
+
+#### DURO IMU AND GPS-RTK
+
+<img src="imgs/imu_example.png" alt="Vineyard an Olive Crops used to gather data" width="900px"/> <br/>
