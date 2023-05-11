@@ -260,7 +260,7 @@ The module shots five different images  with a fixed resolution of 1280x960 pixe
 
 with the following convention: Band-name,CenterFrequency (Bandwidth).
 
-The following image show an example of a set of images referring to the same subject.
+The following figure shows an example of a set of images referring to the same subject.
 
 <img src="imgs/micasense_example.png" alt="Micasense multi-bands images" width="900px"/> <br/>
 
