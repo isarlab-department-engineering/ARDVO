@@ -1,11 +1,15 @@
 # ARD-VO: Agricultural Robot Dataset of Vineyards and Olive groves
 
-
 ***10, Mar 2021 update***</br> 
 - REPOSITORY UNDER CONSTRUCTION we are uploading and building the github repo.  </br></br></br>
 
-Real-world extensive set of data to support the development of solutions and algorithms for precision farming technologies in the aforementioned crops. ARD-VO has been collected with an
-Unmanned Ground Vehicle (UGV) equipped with different heterogeneous sensors
+
+
+
+ARD-VO is a Real-world extensive set of data to support the development of solutions and algorithms for precision 
+farming technologies. </br>
+
+ARD-VO has been collected with an Unmanned Ground Vehicle (UGV) equipped with different heterogeneous sensors
 that capture information essential for robot localization and plant monitoring tasks.
 It is composed of sequences gathered in 11 experimental sessions between August
 and October 2021, navigating the UGV for several kilometers in four cultivation
@@ -21,6 +25,7 @@ fields in Umbria, a central region of Italy: (a)-(b) vineyards, (c)-(d) olive cr
 |  Vynrd B   |       Grechetto Todi G5       |   42.812355, 12.418741   |     2      |     4, August 2021  </br> 1, September 2021     |
 |  OlvCs A   |           Moraiolo            |   42.967206, 12.407057   |     4      | 14-23-30, September 2021 </br> 13, October 2021 |
 |  OlvCs B   | Moraiolo, Leccino, Frantoiano |   42.961702, 12.412744   |     4      | 14-23-30, September 2021 </br> 13, October 2021 |
+
 
 ## 1. License
 ARD-VO is released undeR the following License:
@@ -45,6 +50,7 @@ Under the following conditions:</br>
       year={2023},
       publisher={Wiley Online Library}
     }
+
 
 ## 2. Agrobot - The robotic platform
 
@@ -133,6 +139,7 @@ bit) and two SATA SSD 2.5", 2TB disks for data. </td>
 </table>
 
 ## 3. Dataset
+
 
 For each session, two sets of data are available: the first is made using the sensors connected
 to the onboard computer, and the second only with the multispectral camera, whose streams are independently geotagged
