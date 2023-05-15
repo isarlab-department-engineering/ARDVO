@@ -305,7 +305,7 @@ for the four cultivation using just the multispectral images.
 ```shell
 ARD-VO
 ├── Processed 
-│   ├── OlvcsA
+│   ├── Olvcs A
 │   │     └── 13_Oct_2021
 │   │     │        └── 2021-10-13-12-43-46_clean.bag
 │   │     │        └── 2021-10-13-12-53-28_clean.bag
@@ -318,8 +318,8 @@ ARD-VO
 │         │        └── ....
 │         │        └── 2021-09-01-12-25-09_clean.bag
 │         └── 04_Aug_2021
-├── raw
-│   ├── OlvcsA
+├── Raw
+│   ├── Olvcs A
 │   │     └── 13_Oct_2021
 │   │     │        └── 2021-10-13-12-43-46.bag
 │   │     │        └── 2021-10-13-12-53-28.bag
