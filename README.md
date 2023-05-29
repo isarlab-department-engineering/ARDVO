@@ -5,30 +5,11 @@
 
 
 
-
 ARD-VO is a Real-world extensive set of data to support the development of solutions and algorithms for precision 
 farming technologies. </br>
 
-ARD-VO has been collected with an Unmanned Ground Vehicle (UGV) equipped with different heterogeneous sensors
-that capture information essential for robot localization and plant monitoring tasks.
-It is composed of sequences gathered in 11 experimental sessions between August
-and October 2021, navigating the UGV for several kilometers in four cultivation
-fields in Umbria, a central region of Italy: (a)-(b) vineyards, (c)-(d) olive crops
-
-
-<img src="imgs/cultivs.png" alt="Vineyard an Olive Crops used to gather data" width="900x"/> <br/>
-
-
-| Alias name |         Crop Variety          |     lat(N) , lon(E)      | # Sessions |               Date: dd, mm, yyyy                |
-|:----------:|:-----------------------------:|:------------------------:|:----------:|:-----------------------------------------------:|
-|  Vynrd A   |       Grechetto Todi G5       |   43.004491, 12.294889   |     1      |                3, September 2021                |
-|  Vynrd B   |       Grechetto Todi G5       |   42.812355, 12.418741   |     2      |     4, August 2021  </br> 1, September 2021     |
-|  OlvCs A   |           Moraiolo            |   42.967206, 12.407057   |     4      | 14-23-30, September 2021 </br> 13, October 2021 |
-|  OlvCs B   | Moraiolo, Leccino, Frantoiano |   42.961702, 12.412744   |     4      | 14-23-30, September 2021 </br> 13, October 2021 |
-
-
-## 1. License
-ARD-VO is released undeR the following License:
+## License
+ARD-VO is released under the following License:
 
 Attribution-NonCommercial-ShareAlike 3.0 [CC BY-NC-SA 3.0](LICENSE).
 
@@ -52,7 +33,17 @@ Under the following conditions:</br>
     }
 
 
-## 2. Agrobot - The robotic platform
+## 1. Project Agrobot
+The AGROBOT project was funded by <i>Umbria Region PSR program 2014-2020, Focus Area
+2A</i>  and aims to develop and demonstrate in real application contexts the technologies necessary to 
+automate some crop scouting and monitoring operations (mainly related to olive grove and vineyard).
+The explicit objective of the project is to use  state-of-the-art technologies in the field of mobile robotics 
+and image processing in order to reduce the time and costs of regularly monitoring the physiological and phytosanitary crop state. 
+The project outcome is a prototype vehicle able to drive autonomously, equipped with sensing equipment 
+to carry out on-line agriculturally meaningful monitoring.
+
+
+## 2. The robotic platform
 
 We collected a dataset with a robotic platform so-called "Agrobot". In the following the body specs and the sensors equipments 
 of the robotic platform. 
@@ -138,14 +129,34 @@ bit) and two SATA SSD 2.5", 2TB disks for data. </td>
     <td colspan="2"> <b>Ethernet switch:</b> Oring TGXPS-1080-M12-24V Series </td> </tr>
 </table>
 
-## 3. Dataset
+
+## 3. Data collection campaign
+ARD-VO has been collected with an Unmanned Ground Vehicle (UGV) equipped with different heterogeneous sensors
+that capture information essential for robot localization and plant monitoring tasks.
+It is composed of sequences gathered in 11 experimental sessions between August
+and October 2021, navigating the UGV for several kilometers in four cultivation
+fields in Umbria, a central region of Italy: (a)-(b) vineyards, (c)-(d) olive crops
+
+
+<img src="imgs/cultivs.png" alt="Vineyard an Olive Crops used to gather data" width="900x"/> <br/>
+
+
+| Alias name |         Crop Variety          |     lat(N) , lon(E)      | # Sessions |               Date: dd, mm, yyyy                |
+|:----------:|:-----------------------------:|:------------------------:|:----------:|:-----------------------------------------------:|
+|  Vynrd A   |       Grechetto Todi G5       |   43.004491, 12.294889   |     1      |                3, September 2021                |
+|  Vynrd B   |       Grechetto Todi G5       |   42.812355, 12.418741   |     2      |     4, August 2021  </br> 1, September 2021     |
+|  OlvCs A   |           Moraiolo            |   42.967206, 12.407057   |     4      | 14-23-30, September 2021 </br> 13, October 2021 |
+|  OlvCs B   | Moraiolo, Leccino, Frantoiano |   42.961702, 12.412744   |     4      | 14-23-30, September 2021 </br> 13, October 2021 |
+
+
+## 4. Dataset
 
 
 For each session, two sets of data are available: the first is made using the sensors connected
 to the onboard computer, and the second only with the multispectral camera, whose streams are independently geotagged
 by using the GPS of the RedEdge Micasese kit. 
 
-### 3.1 ROSBAG for onboard devices recorded data.
+### 4.1 ROSBAG for onboard devices recorded data.
 
 We used **[ROS Noetic](http://wiki.ros.org/noetic)** to handle the data
 related to the devices directly connected to the onboard unit, while the multispectral images are stored directly on the SSD
@@ -212,7 +223,7 @@ this dataset.
   </tr>
 </table>
 
-### 3.1.1 Extracted data examples
+### 4.1.1 Extracted data examples
 
 #### RGB AND LIDAR
 In the following, as en example some RGB images and laser scans extracted from ARD-VO dataset.</br>
@@ -244,7 +255,7 @@ and /gps/duro/odom. The image below shows an example of accelerations and angula
 
 <img src="imgs/imu_example.png" alt="Imu data example" width="900px"/> <br/>
 
-### 3.1.2 Post-processing 
+### 4.1.2 Post-processing 
 Due to voltage oscillations, shocks, network congestion, and
 ROS node miscommunications, we experienced spurious and
 corrupted frames among the raw RGB image sets.</br>
@@ -255,9 +266,9 @@ As a result, the image streams in the postprocessed sequences are free from corr
 
 The un-processed (raws) sequences are also provided in separate folders for completeness and further studies. 
 
-### 3.2 Multispectral data
+### 4.2 Multispectral data
 We employed a RedEdge MX camera. </br>
-#### 3.2.1 Images data
+#### 4.2.1 Images data
 The module shots five different images  with a fixed resolution of 1280x960 pixels at 1 Hz, corresponding to different bands:
 - Blue,475 (32)
 - Green, 560 (27)
@@ -271,7 +282,7 @@ The following figure shows an example of a set of images referring to the same s
 
 <img src="imgs/micasense_example.png" alt="Micasense multi-bands images" width="900px"/> <br/>
 
-#### 3.2.2 Calibration
+#### 4.2.2 Calibration
 Before each experimental session, radiometric calibration is
 performed to compensate for sensor black-level, sensor sensitivity, sensor gain and exposure settings, and lens vignette
 effects. The radiometric model is used to normalize the pixel value in the range 0 to 1: dividing the raw digital number for
@@ -279,7 +290,7 @@ the pixel by 2𝑁 , where 𝑁 is the number of bits in the image: in this case
 This normalization applies to both pixel and black-level values.
 
 
-#### 3.2.3 Data
+#### 4.2.3 Data
 The camera embeds five optimized imagers with their sensor and filter. The camera module also has one stand-alone external GPS
 to geotag the images. all the information are stored in the meta-data (EXIF) of the images that can be extracted with dedicated
 tools or programming libraries:
@@ -292,7 +303,7 @@ the alignment with the other sensors. Since, depending on the needs, there might
 we preferred to keep the images provided by the sensor, leaving to the users the possibility to implement
 the post-processing and the alignment procedures as deemed appropriate.
 
-#### 3.2.4 Examples of stand-alone study
+#### 4.2.4 Examples of stand-alone study
 The availability of isolate geotagged multi-spectral images allows to perform studies that are not directly related to 
 robotics, so there is no need to download the entire dataset. </br>
 The following set of images shows as example, the NDVI maps computed
@@ -300,7 +311,7 @@ for the four cultivation using just the multispectral images.
 
 <img src="imgs/ndvi_map_example.png" alt="Ndvi map example" width="900px"/> <br/>
 
-### 3.3 Data organization
+### 4.3 Data organization
 
 ```shell
 ARD-VO
@@ -334,3 +345,25 @@ ARD-VO
 │         └── 04_Aug_2021
 └── Multispectral
 ```
+
+
+## 5. Partners
+<img src="imgs/partners_logos.jpg" alt="partners_agrobot" width="900x"/> <br/>
+
+The project consortium comprises the Engineering Department, University of Perugia; the Agricultural, Food and
+Environmental Sciences Department, University of Perugia; the Institute of Life Sciences, Sant’Anna School of Advanced
+Studies; Cratia srl; Assoprol Umbria soc. coop. Agr; the “Ciuffelli Einaudi” Technical Agricultural Institute; 
+and Infomobility srl. 
+ - **Cratia srl** is a company specialised in training, consultancy and management for the agricultural 
+and agro-industrial sector, owned by Confagricoltura Umbria, with a strong expertise in cooperation and innovation projects. Cratia role within the
+Agrobot project, in addition to coordination and administration, is to support and take part into field experimental and
+demonstration tests.
+ - **Assoprol Umbria soc. coop. Agr.**, a major organization of oil
+and olive producers of Umbria, has the aims to work toward
+the improvement and the enhancement of the production of
+extra-virgin olive oil, including through cooperation and innovation projects. Within the Agrobot project Assoprol, beside
+administrative and management tasks, will support the consortium both with end-user involvement and result dissemination.
+ - **The “Ciuffelli Einaudi” Technical Agricultural Institute** will cooperate to the field experimental and demonstration tests.
+ - **Infomobility srl**, a company quite active in the automotive, infomobility and machine control areas, will develop the main
+control station and some of the sensing equipment.
+
