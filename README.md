@@ -4,7 +4,6 @@
 - REPOSITORY UNDER CONSTRUCTION we are uploading and building the github repo.  </br></br></br>
 
 
-
 ARD-VO is a Real-world extensive set of data to support the development of solutions and algorithms for precision 
 farming technologies. </br>
 
@@ -34,8 +33,8 @@ Under the following conditions:</br>
 
 
 ## 1. Project Agrobot
-The AGROBOT project was funded by <i>Umbria Region PSR program 2014-2020, Focus Area
-2A</i>  and aims to develop and demonstrate in real application contexts the technologies necessary to 
+AGROBOT is a project funded by <i>Umbria Region PSR program 2014-2020, Focus Area
+2A</i> and aims to develop and demonstrate in real application contexts the technologies necessary to 
 automate some crop scouting and monitoring operations (mainly related to olive grove and vineyard).
 The explicit objective of the project is to use  state-of-the-art technologies in the field of mobile robotics 
 and image processing in order to reduce the time and costs of regularly monitoring the physiological and phytosanitary crop state. 
@@ -45,10 +44,9 @@ to carry out on-line agriculturally meaningful monitoring.
 
 ## 2. The robotic platform
 
-We collected a dataset with a robotic platform so-called "Agrobot". In the following the body specs and the sensors equipments 
-of the robotic platform. 
+In the following, we present the body specs and the sensors equipments of the robotic platform used for the data collection campaign. 
 
-### Body Specs
+### 2.1 Body Specs
 
 
 
@@ -81,7 +79,7 @@ of the robotic platform.
   </tr>
 </table>
 
-### Sensors, Equipments and connection overview
+### 2.2 Sensors, Equipments and connection overview
 <table>
   <tr>
     <th><img src="imgs/Agrobot_overview_sens.jpg" alt="Agrobot - Sensors displacement" height="350x"/> </th>
@@ -150,7 +148,6 @@ fields in Umbria, a central region of Italy: (a)-(b) vineyards, (c)-(d) olive cr
 
 
 ## 4. Dataset
-
 
 For each session, two sets of data are available: the first is made using the sensors connected
 to the onboard computer, and the second only with the multispectral camera, whose streams are independently geotagged
@@ -227,9 +224,9 @@ this dataset.
   </tr>
 </table>
 
-### 4.1.1 Extracted data examples
+#### 4.1.1 Extracted data examples
 
-#### RGB AND LIDAR
+##### RGB AND LIDAR
 In the following, as en example some RGB images and laser scans extracted from ARD-VO dataset.</br>
 The first two rows contain the RGB images collected by the left (a-f) and the right (g-l) cameras, respectively. </br>
 The third row includes examples of laser scans. The first three columns (a-c, g-i, m-o) contain samples from the sequences gathered
@@ -237,7 +234,7 @@ in the olive crops (OlvCS-A,B), while the latter three (d-f, j-l, p-r) from thos
 
 <img src="imgs/camera_laser_example.png" alt="RGB images and Lidar example images" width="900px"/> <br/><br/>
 
-#### INVERTERS 
+##### INVERTERS 
 The topics related to the inverters contain useful diagnostic data and flags provided from the inverters. 
 Some flags are coded according to the manufacturer (Roboteq) specs. To further use them you need to download the inverter manual already
 provided in the previous table.
@@ -249,7 +246,7 @@ The gathered data also include RPM of the motors and the power consumption.
 **Note:** Each wheel is connected with a kinematic chain of 80:1 transmission ratio to a 2 kW three-phase brushless BLCD motor that can reach
 4300 rpm and 4.6 Nm torque.</br>
 
-#### DURO IMU AND GPS-RTK
+##### DURO IMU AND GPS-RTK
 
 The Duro intertial device provides GNSS + INS position with a centimeter-level accuracy at up to 10Hz Update Frequency. 
 The latitude/longitude measurements with variance are provided within a specific topic. It should be noted that the topic /gps/duro/imu
@@ -259,7 +256,7 @@ and /gps/duro/odom. The image below shows an example of accelerations and angula
 
 <img src="imgs/imu_example.png" alt="Imu data example" width="900px"/> <br/>
 
-### 4.1.2 Post-processing 
+#### 4.1.2 Post-processing 
 Due to voltage oscillations, shocks, network congestion, and
 ROS node miscommunications, we experienced spurious and
 corrupted frames among the raw RGB image sets.</br>
@@ -272,6 +269,7 @@ The un-processed (raws) sequences are also provided in separate folders for comp
 
 ### 4.2 Multispectral data
 We employed a RedEdge MX camera. </br>
+
 #### 4.2.1 Images data
 The module shots five different images  with a fixed resolution of 1280x960 pixels at 1 Hz, corresponding to different bands:
 - Blue,475 (32)
@@ -348,6 +346,15 @@ ARD-VO
 │         │        └── 2021-09-01-12-25-09.bag
 │         └── 04_Aug_2021
 └── Multispectral
+│   ├── Vynrd A
+│   │     └── 03_Sep_2021/
+│   │              └── Images.tar
+│   │              └── Panel.tar
+│   └── Vynrd B
+│         └── 01_Sep_2021
+│         │        └── Images.tar
+│         │        └── Panel.tar
+│         └── 04_Aug_2021
 ```
 
 
@@ -360,14 +367,14 @@ Studies; Cratia srl; Assoprol Umbria soc. coop. Agr; the “Ciuffelli Einaudi”
 and Infomobility srl. 
  - **Cratia srl** is a company specialised in training, consultancy and management for the agricultural 
 and agro-industrial sector, owned by Confagricoltura Umbria, with a strong expertise in cooperation and innovation projects. Cratia role within the
-Agrobot project, in addition to coordination and administration, is to support and take part into field experimental and
+Agrobot project, in addition to coordination and administration, was to support and take part into field experimental and
 demonstration tests.
  - **Assoprol Umbria soc. coop. Agr.**, a major organization of oil
-and olive producers of Umbria, has the aims to work toward
+and olive producers of Umbria, has the aim to work toward
 the improvement and the enhancement of the production of
 extra-virgin olive oil, including through cooperation and innovation projects. Within the Agrobot project Assoprol, beside
-administrative and management tasks, will support the consortium both with end-user involvement and result dissemination.
- - **The “Ciuffelli Einaudi” Technical Agricultural Institute** will cooperate to the field experimental and demonstration tests.
- - **Infomobility srl**, a company quite active in the automotive, infomobility and machine control areas, will develop the main
+administrative and management tasks, they supported the consortium both with end-user involvement and result dissemination.
+ - **The “Ciuffelli Einaudi” Technical Agricultural Institute** cooperated to the field experimental and demonstration tests.
+ - **Infomobility srl**, a company quite active in the automotive, infomobility and machine control areas, developed the main
 control station and some of the sensing equipment.
 
