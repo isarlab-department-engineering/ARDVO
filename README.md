@@ -319,42 +319,46 @@ for the four cultivation using just the multispectral images.
 ARD-VO
 ├── Processed 
 │   ├── Olvcs A
-│   │     └── 13_Oct_2021
-│   │     │        └── 2021-10-13-12-43-46_clean.bag
+│   │     ├── 13_Oct_2021
+│   │     │        ├── 2021-10-13-12-43-46_clean.bag
 │   │     │        └── 2021-10-13-12-53-28_clean.bag
 │   │     └── ....
 │   │     └── 30_Sep_2021
 │  ...
 │   └── Vynrd B
-│         └── 01_Sep_2021
-│         │        └── 2021-09-01-10-49-44_clean.bag
-│         │        └── ....
+│         ├── 01_Sep_2021
+│         │        ├── 2021-09-01-10-49-44_clean.bag
+│         │        ├── ....
 │         │        └── 2021-09-01-12-25-09_clean.bag
 │         └── 04_Aug_2021
 ├── Raw
 │   ├── Olvcs A
-│   │     └── 13_Oct_2021
-│   │     │        └── 2021-10-13-12-43-46.bag
+│   │     ├── 13_Oct_2021
+│   │     │        ├── 2021-10-13-12-43-46.bag
 │   │     │        └── 2021-10-13-12-53-28.bag
 │   │     └── ....
 │   │     └── 30_Sep_2021
 │  ...
 │   └── Vynrd B
-│         └── 01_Sep_2021
-│         │        └── 2021-09-01-10-49-44.bag
-│         │        └── ....
+│         ├── 01_Sep_2021
+│         │        ├── 2021-09-01-10-49-44.bag
+│         │        ├── ....
 │         │        └── 2021-09-01-12-25-09.bag
 │         └── 04_Aug_2021
-└── Multispectral
+├── Multispectral
 │   ├── Vynrd A
 │   │     └── 03_Sep_2021/
-│   │              └── Images.tar
+│   │              ├── Images.tar
 │   │              └── Panel.tar
 │   └── Vynrd B
-│         └── 01_Sep_2021
-│         │        └── Images.tar
+│         ├── 01_Sep_2021
+│         │        ├── Images.tar
 │         │        └── Panel.tar
 │         └── 04_Aug_2021
+└── Calibration
+    ├── camchain.yaml
+    ├── camchain-imucam.yaml
+    └── imu.yaml
 ```
 
 
