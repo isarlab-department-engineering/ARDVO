@@ -352,22 +352,17 @@ ARD-VO
 
 
 ## 5. Partners
+
+The project consortium comprises:
+
+ - University of Perugia, Engineering Department;
+ - University of Perugia, Agricultural, Food and Environmental Sciences Department;
+ - Institute of Life Sciences, Sant’Anna School of Advanced Studies;
+ - Cratia s.r.l. ;
+ - Assoprol Umbria soc. coop. Agr;
+ - “Ciuffelli Einaudi” Technical Agricultural Institute; 
+ - Infomobility s.r.l. ;
+
 <img src="imgs/partners_logos.jpg" alt="partners_agrobot" width="900x"/> <br/>
 
-The project consortium comprises the Engineering Department, University of Perugia; the Agricultural, Food and
-Environmental Sciences Department, University of Perugia; the Institute of Life Sciences, Sant’Anna School of Advanced
-Studies; Cratia srl; Assoprol Umbria soc. coop. Agr; the “Ciuffelli Einaudi” Technical Agricultural Institute; 
-and Infomobility srl. 
- - **Cratia srl** is a company specialised in training, consultancy and management for the agricultural 
-and agro-industrial sector, owned by Confagricoltura Umbria, with a strong expertise in cooperation and innovation projects. Cratia role within the
-Agrobot project, in addition to coordination and administration, is to support and take part into field experimental and
-demonstration tests.
- - **Assoprol Umbria soc. coop. Agr.**, a major organization of oil
-and olive producers of Umbria, has the aims to work toward
-the improvement and the enhancement of the production of
-extra-virgin olive oil, including through cooperation and innovation projects. Within the Agrobot project Assoprol, beside
-administrative and management tasks, will support the consortium both with end-user involvement and result dissemination.
- - **The “Ciuffelli Einaudi” Technical Agricultural Institute** will cooperate to the field experimental and demonstration tests.
- - **Infomobility srl**, a company quite active in the automotive, infomobility and machine control areas, will develop the main
-control station and some of the sensing equipment.
 
