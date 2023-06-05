@@ -158,7 +158,7 @@ by using the GPS of the RedEdge Micasese kit.
 
 **LINK DATASET DOWNLOAD**
 
-http://sira.diei.unipg.it/supplementary/ARD-VO/
+http://sira.diei.unipg.it/supplementary/public/ARD-VO/
 
 ### 4.1 ROSBAG for onboard devices recorded data.
 
