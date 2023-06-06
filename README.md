@@ -358,6 +358,7 @@ The project consortium comprises the Engineering Department, University of Perug
 Environmental Sciences Department, University of Perugia; the Institute of Life Sciences, Sant’Anna School of Advanced
 Studies; Cratia srl; Assoprol Umbria soc. coop. Agr; the “Ciuffelli Einaudi” Technical Agricultural Institute; 
 and Infomobility srl. 
+<!--
  - **Cratia srl** is a company specialised in training, consultancy and management for the agricultural 
 and agro-industrial sector, owned by Confagricoltura Umbria, with a strong expertise in cooperation and innovation projects. Cratia role within the
 Agrobot project, in addition to coordination and administration, is to support and take part into field experimental and
@@ -370,4 +371,4 @@ administrative and management tasks, will support the consortium both with end-u
  - **The “Ciuffelli Einaudi” Technical Agricultural Institute** will cooperate to the field experimental and demonstration tests.
  - **Infomobility srl**, a company quite active in the automotive, infomobility and machine control areas, will develop the main
 control station and some of the sensing equipment.
-
+-->
