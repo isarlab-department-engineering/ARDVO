@@ -1,8 +1,9 @@
 # ARD-VO: Agricultural Robot Dataset of Vineyards and Olive groves
 
+<!-- 
 ***10, Mar 2021 update***</br> 
 - REPOSITORY UNDER CONSTRUCTION we are uploading and building the github repo.  </br></br></br>
-
+-->
 
 
 ARD-VO is a Real-world extensive set of data to support the development of solutions and algorithms for precision 
